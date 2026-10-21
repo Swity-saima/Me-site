@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Swity Saima</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple:     #3b1f5e;
+    --purple-mid: #5c3485;
+    --purple-soft:#7b52a8;
+    --lavender:   #c4a8e8;
+    --lav-pale:   #f0e8ff;
+    --lav-bg:     #faf6ff;
+    --lav-dark:   #e8ddf5;
+    --text-mid:   #3d2f52;
+    --text-light: #7a6a90;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'DM Sans', sans-serif;
+  }
+  html, body { margin: 0; padding: 0; width: 100%; }
+  body { font-family: var(--sans); background: var(--lav-dark); color: #1a0f2e; overflow-x: hidden; }
+
+  /* ── HERO BANNER ── */
+  .contact-hero {
+    background: var(--purple);
+    padding: 3.5rem 5% 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-hero::before {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(196,168,232,0.07);
+  }
+  .contact-hero::after {
+    content: '';
+    position: absolute;
+    left: 30%; bottom: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(196,168,232,0.05);
+  }
+  .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(196,168,232,0.7); margin-bottom: 0.5rem; }
+  .divider { width: 40px; height: 1.5px; background: var(--lavender); margin-bottom: 1.2rem; }
+  .section-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--lav-pale); line-height: 1.1; margin-bottom: 1rem; }
+  .section-title em { font-style: italic; color: var(--lavender); }
+  .hero-sub { font-size: 0.9rem; color: rgba(255,255,255,0.5); max-width: 420px; line-height: 1.8; }
+
+  /* ── CARDS ── */
+  .cards-wrap {
+    padding: 0 5% 3.5rem;
+    margin-top: -2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+
+  .contact-card {
+    background: white;
+    padding: 1.6rem;
+    border-bottom: 3px solid var(--lavender);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .contact-card:hover { transform: translateY(-3px); border-color: var(--purple-soft); }
+
+  .card-icon {
+    width: 38px; height: 38px;
+    background: var(--purple);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .card-icon svg { width: 16px; height: 16px; stroke: var(--lavender); fill: none; stroke-width: 1.6; }
+  .card-label { font-size: 0.67rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.3rem; }
+  .card-value { font-size: 0.9rem; color: var(--purple); font-weight: 500; word-break: break-word; }
+  .card-value a { color: var(--purple-mid); text-decoration: none; }
+  .card-value a:hover { color: var(--purple); text-decoration: underline; }
+
+  /* ── AVAILABILITY ── */
+  .avail-section { padding: 2.5rem 5%; background: var(--lav-bg); }
+  .avail-inner { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .avail-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.8rem;
+    color: #3a6e44;
+    background: rgba(58,110,68,0.07);
+    border: 1px solid rgba(58,110,68,0.25);
+    padding: 0.5rem 1.2rem;
+  }
+  .avail-badge::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: #3a6e44;
+    border-radius: 50%;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .avail-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; max-width: 400px; }
+
+  /* ── PERSONAL ── */
+  .personal { padding: 3rem 5%; background: var(--lav-dark); }
+  .personal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin-top: 1.8rem; }
+  .pi-row { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.9rem 1rem; background: white; border-left: 2px solid var(--lavender); }
+  .pi-label { font-size: 0.66rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--text-light); }
+  .pi-value { font-size: 0.87rem; color: var(--purple); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--purple); padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .footer-brand { font-family: var(--serif); font-size: 1.05rem; color: var(--lavender); font-style: italic; }
+  footer p { font-size: 0.76rem; color: rgba(255,255,255,0.35); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .cards-grid, .personal-grid { animation: fadeUp 0.5s ease both; }
+
+  @media (max-width: 600px) {
+    .contact-hero { padding: 2.5rem 4% 4rem; }
+    .cards-wrap { padding: 0 4% 2.5rem; }
+    .avail-section, .personal { padding: 2rem 4%; }
+    footer { padding: 1.2rem 4%; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO BANNER -->
+<div class="contact-hero">
+  <p class="section-eyebrow">Let's Connect</p>
+  <div class="divider"></div>
+  <h1 class="section-title">Get In<br><em>Touch</em></h1>
+  <p class="hero-sub">I'm open to opportunities, collaborations, and conversations. Feel free to reach out through any of the channels below.</p>
+</div>
+
+<!-- CONTACT CARDS -->
+<div class="cards-wrap">
+  <div class="cards-grid">
+    <div class="contact-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <p class="card-label">Email</p>
+      <p class="card-value"><a href="mailto:switysaima13@gmail.com">switysaima13@gmail.com</a></p>
+    </div>
+    <div class="contact-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.16a16 16 0 006.29 6.29l1.5-1.34a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <p class="card-label">Phone</p>
+      <p class="card-value">+88 01970296933</p>
+    </div>
+    <div class="contact-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <p class="card-label">Current Address</p>
+      <p class="card-value">Gawair Madrasha Road, Dakhin Khan, Uttara, Dhaka</p>
+    </div>
+    <div class="contact-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <p class="card-label">University</p>
+      <p class="card-value">Daffodil International University, Ashulia, Dhaka</p>
+    </div>
+  </div>
+</div>
+
+<!-- AVAILABILITY -->
+<div class="avail-section">
+  <div class="avail-inner">
+    <span class="avail-badge">Open to Opportunities</span>
+    <p class="avail-text">Currently available for internships, part-time roles, collaborative academic projects, and entry-level positions in technology and software development.</p>
+  </div>
+</div>
+
+<!-- PERSONAL INFO -->
+<section class="personal">
+  <p class="section-eyebrow">Personal Details</p>
+  <div class="divider"></div>
+  <div class="personal-grid">
+    <div class="pi-row"><span class="pi-label">Father's Name</span><span class="pi-value">Md. Sader Molla</span></div>
+    <div class="pi-row"><span class="pi-label">Mother's Name</span><span class="pi-value">Sharmin Akter Shapna</span></div>
+    <div class="pi-row"><span class="pi-label">Permanent Address</span><span class="pi-value">Brahmmonkanda, Goalchamot, Faridpur Sadar, Faridpur</span></div>
+    <div class="pi-row"><span class="pi-label">Date of Birth</span><span class="pi-value">05 May 2003</span></div>
+    <div class="pi-row"><span class="pi-label">Religion</span><span class="pi-value">Islam</span></div>
+    <div class="pi-row"><span class="pi-label">Nationality</span><span class="pi-value">Bangladeshi (by birth)</span></div>
+    <div class="pi-row"><span class="pi-label">Gender</span><span class="pi-value">Female</span></div>
+    <div class="pi-row"><span class="pi-label">Height</span><span class="pi-value">5′ 2″</span></div>
+    <div class="pi-row"><span class="pi-label">Blood Group</span><span class="pi-value">A+</span></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Swity Saima</span>
+  <p>© 2026 · CSE Student · Daffodil International University</p>
+</footer>
+
+</body>
+</html>

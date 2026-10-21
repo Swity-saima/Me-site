@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education — Swity Saima</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple:     #3b1f5e;
+    --purple-mid: #5c3485;
+    --purple-soft:#7b52a8;
+    --lavender:   #c4a8e8;
+    --lav-pale:   #f0e8ff;
+    --lav-bg:     #faf6ff;
+    --lav-dark:   #e8ddf5;
+    --text-mid:   #3d2f52;
+    --text-light: #7a6a90;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'DM Sans', sans-serif;
+  }
+  html, body { margin: 0; padding: 0; width: 100%; }
+  body { font-family: var(--sans); background: var(--purple); color: white; overflow-x: hidden; }
+
+  section { padding: 3.5rem 5%; }
+  .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(196,168,232,0.7); margin-bottom: 0.5rem; }
+  .divider { width: 40px; height: 1.5px; background: var(--lavender); margin-bottom: 1.2rem; }
+  .section-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--lav-pale); line-height: 1.1; margin-bottom: 2.2rem; }
+  .section-title em { font-style: italic; color: var(--lavender); }
+
+  /* light sections */
+  .light { background: var(--lav-dark); }
+  .light .section-eyebrow { color: var(--purple-soft); }
+  .light .section-title { color: var(--purple); }
+  .light .section-title em { color: var(--purple-mid); }
+
+  /* ── TIMELINE ── */
+  .edu-timeline { position: relative; }
+  .edu-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 1px;
+    background: rgba(196,168,232,0.3);
+  }
+  .edu-item { padding: 0 0 2.2rem 2.2rem; position: relative; }
+  .edu-item::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 8px;
+    width: 10px; height: 10px;
+    border: 1.5px solid var(--lavender);
+    background: var(--purple);
+    transform: rotate(45deg);
+  }
+  .edu-year { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lavender); margin-bottom: 0.3rem; }
+  .edu-degree { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 400; color: var(--lav-pale); margin-bottom: 0.2rem; }
+  .edu-institution { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+  .edu-detail { display: inline-block; margin-top: 0.35rem; font-size: 0.75rem; padding: 0.2rem 0.7rem; background: rgba(196,168,232,0.12); border: 1px solid rgba(196,168,232,0.25); color: var(--lavender); letter-spacing: 0.06em; }
+
+  /* ── ACHIEVEMENT CARDS ── */
+  .achiev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.1rem; }
+  .achiev-card {
+    background: white;
+    border-top: 3px solid var(--lavender);
+    padding: 1.3rem 1.4rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .achiev-card:hover { transform: translateY(-3px); border-color: var(--purple-soft); }
+  .achiev-icon { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+  .achiev-title { font-weight: 500; font-size: 0.88rem; color: var(--purple); margin-bottom: 0.2rem; }
+  .achiev-sub { font-size: 0.76rem; color: var(--text-light); }
+
+  /* ── FEATURED GRADE CARDS ── */
+  .grade-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .grade-card { background: rgba(196,168,232,0.1); border: 1px solid rgba(196,168,232,0.2); padding: 1.2rem 1.5rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .grade-num { font-family: var(--serif); font-size: 2.6rem; font-weight: 300; color: var(--lavender); line-height: 1; }
+  .grade-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .edu-timeline, .achiev-grid, .grade-row { animation: fadeUp 0.5s ease both; }
+
+  @media (max-width: 600px) {
+    section { padding: 2.5rem 4%; }
+    .grade-row { grid-template-columns: 1fr; }
+    .achiev-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 400px) { .achiev-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- EDUCATION TIMELINE -->
+<section>
+  <p class="section-eyebrow">Academic Background</p>
+  <div class="divider"></div>
+  <h2 class="section-title">Education &<br><em>Formation</em></h2>
+
+  <div class="grade-row">
+    <div class="grade-card">
+      <span class="grade-num">4.61</span>
+      <span class="grade-label">SSC GPA · Faridpur Govt. Girls' HS</span>
+    </div>
+    <div class="grade-card">
+      <span class="grade-num">4.42</span>
+      <span class="grade-label">HSC GPA · Govt. Sarada Sundari Mohila College</span>
+    </div>
+  </div>
+
+  <div class="edu-timeline">
+    <div class="edu-item">
+      <p class="edu-year">2022 — Present</p>
+      <p class="edu-degree">B.Sc. in Computer Science & Engineering</p>
+      <p class="edu-institution">Daffodil International University — Ashulia, Dhaka</p>
+      <span class="edu-detail">Level 3, Term 3 · Undergraduate</span>
+    </div>
+    <div class="edu-item">
+      <p class="edu-year">Completed</p>
+      <p class="edu-degree">Higher Secondary Certificate (HSC) · Science</p>
+      <p class="edu-institution">Govt. Sarada Sundari Mohila College — Faridpur</p>
+      <span class="edu-detail">GPA: 4.42</span>
+    </div>
+    <div class="edu-item">
+      <p class="edu-year">Completed</p>
+      <p class="edu-degree">Secondary School Certificate (SSC) · Science</p>
+      <p class="edu-institution">Faridpur Govt. Girls' High School — Faridpur</p>
+      <span class="edu-detail">GPA: 4.61</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="light">
+  <p class="section-eyebrow">Beyond the Classroom</p>
+  <div class="divider"></div>
+  <h2 class="section-title">Achievements &<br><em>Milestones</em></h2>
+  <div class="achiev-grid">
+    <div class="achiev-card">
+      <span class="achiev-icon">🎓</span>
+      <p class="achiev-title">Consistent Academic Excellence</p>
+      <p class="achiev-sub">Strong GPA maintained across SSC and HSC in Science stream</p>
+    </div>
+    <div class="achiev-card">
+      <span class="achiev-icon">💻</span>
+      <p class="achiev-title">CSE Undergraduate at DIU</p>
+      <p class="achiev-sub">Currently in Level 3 — actively growing in software & engineering skills</p>
+    </div>
+    <div class="achiev-card">
+      <span class="achiev-icon">🌐</span>
+      <p class="achiev-title">Bilingual Communicator</p>
+      <p class="achiev-sub">Fluent in Bengali (native) and English — reading, writing, speaking & listening</p>
+    </div>
+    <div class="achiev-card">
+      <span class="achiev-icon">🧩</span>
+      <p class="achiev-title">Problem-Solving Focus</p>
+      <p class="achiev-sub">Driven by curiosity and a love of working through complex challenges</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

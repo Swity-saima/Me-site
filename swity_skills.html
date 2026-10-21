@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills — Swity Saima</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple:     #3b1f5e;
+    --purple-mid: #5c3485;
+    --purple-soft:#7b52a8;
+    --lavender:   #c4a8e8;
+    --lav-pale:   #f0e8ff;
+    --lav-bg:     #faf6ff;
+    --lav-dark:   #e8ddf5;
+    --text-mid:   #3d2f52;
+    --text-light: #7a6a90;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'DM Sans', sans-serif;
+  }
+  html, body { margin: 0; padding: 0; width: 100%; }
+  body { font-family: var(--sans); background: var(--lav-bg); color: #1a0f2e; overflow-x: hidden; }
+
+  section { padding: 3.5rem 5%; }
+  .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 0.5rem; }
+  .divider { width: 40px; height: 1.5px; background: var(--lavender); margin-bottom: 1.2rem; }
+  .section-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--purple); line-height: 1.1; margin-bottom: 2rem; }
+  .section-title em { font-style: italic; color: var(--purple-mid); }
+
+  .dark { background: var(--purple); }
+  .dark .section-eyebrow { color: rgba(196,168,232,0.7); }
+  .dark .section-title { color: var(--lav-pale); }
+  .dark .section-title em { color: var(--lavender); }
+
+  /* ── SKILL GROUPS ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 2rem; }
+  .skill-group-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--purple-soft);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(123,82,168,0.2);
+  }
+  .skill-list { list-style: none; }
+  .skill-list li {
+    font-size: 0.87rem;
+    color: var(--text-mid);
+    padding: 0.38rem 0;
+    border-bottom: 1px solid rgba(196,168,232,0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .skill-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--lavender);
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+
+  /* ── PILL BADGES ── */
+  .badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+  .badge {
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(196,168,232,0.35);
+    background: rgba(196,168,232,0.08);
+    font-size: 0.78rem;
+    color: var(--lav-pale);
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+  }
+
+  /* ── GOALS SECTION ── */
+  .goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  .goals-intro { font-size: 0.9rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1.5rem; }
+
+  .timeline-v { position: relative; }
+  .timeline-v::before { content: ''; position: absolute; left: 10px; top: 4px; bottom: 0; width: 1px; background: rgba(123,82,168,0.25); }
+  .t-item { display: flex; gap: 1.2rem; padding-bottom: 1.5rem; position: relative; }
+  .t-dot {
+    width: 20px; height: 20px;
+    border: 1.5px solid var(--lavender);
+    background: var(--lav-bg);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .t-dot-inner { width: 6px; height: 6px; background: var(--purple-soft); }
+  .t-phase { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 0.2rem; }
+  .t-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--purple); margin-bottom: 0.3rem; }
+  .t-desc { font-size: 0.84rem; color: var(--text-mid); line-height: 1.65; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .skills-grid, .goals-grid { animation: fadeUp 0.5s ease both; }
+
+  @media (max-width: 768px) { .goals-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) {
+    section { padding: 2.5rem 4%; }
+    .skills-grid { grid-template-columns: 1fr 1fr; gap: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SKILLS -->
+<section>
+  <p class="section-eyebrow">Capabilities</p>
+  <div class="divider"></div>
+  <h2 class="section-title">Skills &<br><em>Tools</em></h2>
+  <div class="skills-grid">
+    <div>
+      <p class="skill-group-title">Core Strengths</p>
+      <ul class="skill-list">
+        <li>Communication Skills</li>
+        <li>Creative Thinking</li>
+        <li>Problem-Solving</li>
+        <li>Punctuality & Discipline</li>
+      </ul>
+    </div>
+    <div>
+      <p class="skill-group-title">IT & Office</p>
+      <ul class="skill-list">
+        <li>Email & Professional Comms</li>
+        <li>MS Word</li>
+        <li>PowerPoint</li>
+      </ul>
+    </div>
+    <div>
+      <p class="skill-group-title">Languages</p>
+      <ul class="skill-list">
+        <li>Bengali — Native</li>
+        <li>English — Proficient</li>
+      </ul>
+    </div>
+    <div>
+      <p class="skill-group-title">Currently Studying</p>
+      <ul class="skill-list">
+        <li>Computer Science & Engineering</li>
+        <li>Programming Fundamentals</li>
+        <li>Software Development Concepts</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DARK: ASPIRATIONS -->
+<section class="dark">
+  <p class="section-eyebrow">Aspirations</p>
+  <div class="divider"></div>
+  <h2 class="section-title">Interests &<br><em>Focus Areas</em></h2>
+  <div class="badges">
+    <span class="badge">Software Development</span>
+    <span class="badge">Problem Solving</span>
+    <span class="badge">Creative Technology</span>
+    <span class="badge">Communication</span>
+    <span class="badge">Computer Science</span>
+    <span class="badge">Continuous Learning</span>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section>
+  <p class="section-eyebrow">Vision</p>
+  <div class="divider"></div>
+  <h2 class="section-title">Career<br><em>Roadmap</em></h2>
+  <div class="goals-grid">
+    <div>
+      <p class="goals-intro">I'm a disciplined CSE student with a strong academic foundation and a passion for learning. My roadmap is about building solid technical skills during my degree, then growing into a confident software professional who can take on meaningful challenges.</p>
+    </div>
+    <div class="timeline-v">
+      <div class="t-item">
+        <div class="t-dot"><div class="t-dot-inner"></div></div>
+        <div>
+          <p class="t-phase">Now · 2025–2026</p>
+          <p class="t-title">CSE Student & Skill Builder</p>
+          <p class="t-desc">Completing Level 3 at DIU while deepening programming knowledge and strengthening core CS concepts.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"><div class="t-dot-inner"></div></div>
+        <div>
+          <p class="t-phase">Near Term · 2026–2027</p>
+          <p class="t-title">Graduation & First Role</p>
+          <p class="t-desc">Completing my B.Sc. and stepping into an entry-level role in software development or IT.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"><div class="t-dot-inner"></div></div>
+        <div>
+          <p class="t-phase">Long Term · 2028+</p>
+          <p class="t-title">Software Professional</p>
+          <p class="t-desc">Growing into a capable, creative software engineer — making technology that genuinely helps people.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
