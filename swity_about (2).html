@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Swity Saima</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple:     #3b1f5e;
+    --purple-mid: #5c3485;
+    --purple-soft:#7b52a8;
+    --lavender:   #c4a8e8;
+    --lav-pale:   #f0e8ff;
+    --lav-bg:     #faf6ff;
+    --lav-dark:   #e8ddf5;
+    --text-mid:   #3d2f52;
+    --text-light: #7a6a90;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'DM Sans', sans-serif;
+  }
+  html, body { margin: 0; padding: 0; width: 100%; }
+  body { font-family: var(--sans); background: var(--lav-bg); color: #1a0f2e; overflow-x: hidden; }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 5%;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -4%;
+    top: 4%;
+    width: 50%;
+    height: 92%;
+    background: var(--purple);
+    border-radius: 2px;
+    z-index: 0;
+  }
+  /* decorative circles */
+  .hero::after {
+    content: '';
+    position: absolute;
+    left: 38%;
+    bottom: -60px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(196,168,232,0.12);
+    z-index: 0;
+  }
+
+  .hero-text { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 0.73rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--purple-soft);
+    margin-bottom: 0.9rem;
+    animation: fadeUp 0.55s ease both;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--purple);
+    margin-bottom: 0.4rem;
+    animation: fadeUp 0.55s 0.08s ease both;
+  }
+  .hero-name em { font-style: italic; color: var(--purple-mid); }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 300;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.55s 0.16s ease both;
+  }
+  .hero-bio {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    max-width: 420px;
+    line-height: 1.85;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.55s 0.24s ease both;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.8rem; animation: fadeUp 0.55s 0.32s ease both; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    transition: all 0.22s;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--purple); color: var(--lav-pale); border: 1px solid var(--purple); }
+  .btn-primary:hover { background: var(--purple-mid); border-color: var(--purple-mid); }
+  .btn-outline { background: transparent; color: var(--purple); border: 1px solid var(--purple); }
+  .btn-outline:hover { background: var(--purple); color: var(--lav-pale); }
+
+  .hero-visual { position: relative; z-index: 1; display: flex; justify-content: center; animation: fadeUp 0.7s 0.18s ease both; }
+  .photo-frame { position: relative; width: clamp(180px, 22vw, 270px); }
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -14px; left: -14px; right: 14px; bottom: 14px;
+    border: 1.5px solid var(--lavender);
+    z-index: 0;
+  }
+  .photo-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: rgba(196,168,232,0.25);
+    z-index: 0;
+  }
+  .photo-frame img {
+    width: 100%;
+    height: clamp(220px, 27vw, 330px);
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+  /* placeholder avatar when no photo is supplied */
+  .photo-placeholder {
+    width: 100%;
+    height: clamp(220px, 27vw, 330px);
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-soft) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .photo-placeholder span {
+    font-family: var(--serif);
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(240,232,255,0.6);
+    letter-spacing: -0.02em;
+  }
+
+  /* ── STATS STRIP ── */
+  .stats-strip { display: flex; background: var(--purple); padding: 1.4rem 5%; }
+  .stat { flex: 1; text-align: center; padding: 0.5rem 1rem; border-right: 1px solid rgba(196,168,232,0.2); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-family: var(--serif); font-size: 1.8rem; color: var(--lavender); font-weight: 300; display: block; }
+  .stat-label { font-size: 0.67rem; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* ── ABOUT DETAIL ── */
+  .about-detail { padding: 3.5rem 5%; background: var(--lav-dark); }
+  .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 0.5rem; }
+  .divider { width: 40px; height: 1.5px; background: var(--lavender); margin-bottom: 1.2rem; }
+  .section-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: var(--purple); line-height: 1.1; margin-bottom: 2rem; }
+  .section-title em { font-style: italic; }
+
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .detail-text p { font-size: 0.91rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 0.9rem; }
+
+  .info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+  .info-card { background: white; border-left: 3px solid var(--lavender); padding: 1rem 1.2rem; }
+  .info-card-label { font-size: 0.67rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.2rem; }
+  .info-card-value { font-size: 0.87rem; color: var(--purple); font-weight: 500; }
+
+  /* ── CONTACT STRIP ── */
+  .contact-strip { padding: 2rem 5%; background: var(--lav-bg); display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
+  .contact-item { display: flex; align-items: center; gap: 0.6rem; }
+  .contact-dot { width: 28px; height: 28px; background: var(--purple); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-dot svg { width: 13px; height: 13px; stroke: var(--lavender); fill: none; stroke-width: 1.6; }
+  .contact-item-text { font-size: 0.85rem; color: var(--text-mid); }
+  .contact-item-text a { color: var(--purple-mid); text-decoration: none; }
+  .contact-item-text a:hover { color: var(--purple); text-decoration: underline; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 3rem 5%; text-align: center; }
+    .hero::before { display: none; }
+    .hero-bio { margin: 0 auto 1.5rem; }
+    .hero-ctas { justify-content: center; }
+    .detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .stats-strip { flex-wrap: wrap; }
+    .stat { flex: 1 1 45%; border-right: none; border-bottom: 1px solid rgba(196,168,232,0.15); }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 2.5rem 4%; }
+    .about-detail { padding: 2.5rem 4%; }
+    .info-cards { grid-template-columns: 1fr; }
+    .contact-strip { padding: 1.5rem 4%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">BSc. Computer Science & Engineering · DIU</p>
+    <h1 class="hero-name">Swity<br><em>Saima</em></h1>
+    <p class="hero-title">CSE Student · Problem Solver · Lifelong Learner</p>
+    <p class="hero-bio">A hard-working and disciplined Computer Science & Engineering student at Daffodil International University, always seeking opportunities to broaden her knowledge and sharpen her skills. Never backing down from a challenge.</p>
+    <div class="hero-ctas">
+      <a href="https://raw.githubusercontent.com/Swity-saima/Me-site/main/swity_education.html" class="btn btn-primary">Education & Awards →</a>
+      <a href="https://raw.githubusercontent.com/Swity-saima/Me-site/main/swity_contact.html" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="photo-frame">
+      <img src="https://raw.githubusercontent.com/Swity-saima/Me-site/main/photo_2026-10-22_02-04-23.jpg" alt="Swity Saima">
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat"><span class="stat-num">4.61</span><span class="stat-label">SSC GPA</span></div>
+  <div class="stat"><span class="stat-num">4.42</span><span class="stat-label">HSC GPA</span></div>
+  <div class="stat"><span class="stat-num">L3</span><span class="stat-label">Current Level, DIU</span></div>
+  <div class="stat"><span class="stat-num">2</span><span class="stat-label">Languages</span></div>
+</div>
+
+<!-- ABOUT DETAIL -->
+<section class="about-detail">
+  <p class="section-eyebrow">Who I Am</p>
+  <div class="divider"></div>
+  <h2 class="section-title">A mind shaped by<br><em>curiosity & discipline</em></h2>
+  <div class="detail-grid">
+    <div class="detail-text">
+      <p>I'm Swity Saima, a CSE undergraduate at Daffodil International University, currently in Level 3, Term 3. My academic journey started strong — achieving a GPA of 4.61 in SSC and 4.42 in HSC from Faridpur — and I've carried that same dedication into university life.</p>
+      <p>I'm driven by a genuine passion for problem-solving and creative thinking. I believe that discipline, communication, and the willingness to keep learning are just as important as technical skill — and I strive to build all three every day.</p>
+      <p>I communicate fluently in Bengali and English, and I'm always on the lookout for meaningful challenges to take on.</p>
+    </div>
+    <div class="info-cards">
+      <div class="info-card"><p class="info-card-label">Date of Birth</p><p class="info-card-value">05 May 2003</p></div>
+      <div class="info-card"><p class="info-card-label">Nationality</p><p class="info-card-value">Bangladeshi</p></div>
+      <div class="info-card"><p class="info-card-label">Religion</p><p class="info-card-value">Islam</p></div>
+      <div class="info-card"><p class="info-card-label">Blood Group</p><p class="info-card-value">A+</p></div>
+      <div class="info-card"><p class="info-card-label">Height</p><p class="info-card-value">5′ 2″</p></div>
+      <div class="info-card"><p class="info-card-label">Marital Status</p><p class="info-card-value">Unmarried</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="contact-item">
+    <div class="contact-dot">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </div>
+    <p class="contact-item-text"><a href="mailto:switysaima13@gmail.com">switysaima13@gmail.com</a></p>
+  </div>
+  <div class="contact-item">
+    <div class="contact-dot">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.16a16 16 0 006.29 6.29l1.5-1.34a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </div>
+    <p class="contact-item-text">+88 01970296933</p>
+  </div>
+  <div class="contact-item">
+    <div class="contact-dot">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <p class="contact-item-text">Dakhin Khan, Uttara, Dhaka</p>
+  </div>
+</div>
+
+</body>
+</html>
